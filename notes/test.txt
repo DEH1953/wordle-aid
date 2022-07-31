@@ -1,0 +1,5 @@
+print('Did you locate any letters in use and in the correct location?")
+
+response = upper(input('y/n?  '))
+
+print(response)

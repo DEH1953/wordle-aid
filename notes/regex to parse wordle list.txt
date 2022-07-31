@@ -1,0 +1,19 @@
+import re
+
+#Check if the string starts with "The" and ends with "Spain":
+
+txt = "TWINS, TWIGS, ALARM, TOO,"
+x = re.findall("T.I..", txt)
+y = ""
+if x:
+  for item in x:
+  	y += item + ", "
+  
+  print(y)
+  print(x)
+  x = y
+  print(x)
+
+else:
+  print("No match")
+
