@@ -41,7 +41,7 @@ def display_current_words(current_list):
     return
 
 
-def reduce_list_of_eliminated_letters(current_list):
+def OLD_reduce_list_of_eliminated_letters(current_list):
 
     possible_words = []
 
@@ -59,4 +59,36 @@ def reduce_list_of_eliminated_letters(current_list):
         else:
             print(f"Keeping: {word}")
             possible_words.append(word)
+    return(possible_words)
+
+
+def reduce_list_of_eliminated_letters(current_list):
+    possible_words = []
+
+    print("\n====================================\n\n")
+    print("Enter the letter to be eliminated")
+    print("Next enter a pattern for letter elimination")
+    print("Use a period to allow that letter to appear")
+    print("in that position. Use a ? to delete the ")
+    print("letter from all words with it in that position")
+    print("For example: to disallow words using the letter e")
+    print("in all positions except for the middle spot")
+    print("you would enter ??.?? as the pattern.")
+
+    letter = input("What is the letter:  ").upper()
+    pattern = input("What is the deletion pattern:   ")
+
+    for position in range(5):
+        if pattern[position] == "?":
+            for word in current_list:
+                if word[position] == letter:
+                    print(f"Eliminating: {word}")
+                else:
+                    print(f"Keeping: {word}")
+                    if word not in possible_words:
+                        possible_words.append(word)
+                current_list =[]
+                for word in possible_words:
+                    current_list.append(word)
+
     return(possible_words)
