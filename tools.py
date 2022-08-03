@@ -30,13 +30,12 @@ def reduce_list_by_located_letters(current_list):
     for word in current_list:
         if re.search(pattern, word):
             new_list.append(word)
-
     return new_list
 
 
-def display_current_words(word_string):
+def display_current_words(current_list):
     print("\n========= CURRENT WORDS ============")
-    for word in word_string:
+    for word in current_list:
         print(word)
     print("====================================\n\n")
     return
