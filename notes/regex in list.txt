@@ -1,0 +1,15 @@
+def clean_text(rgx_list, text):
+    new_text = text
+    for rgx_match in rgx_list:
+        new_text = re.sub(rgx_match, '', new_text)
+    return new_text
+    
+    rgx_list = ['pattern_1', 'pattern_2', 'pattern_3']
+And I am using a function to loop through the list, compile the regex's, and apply a findall to grab the matched terms and then I would like a way of deleting said terms from the text.
+
+def clean_text(rgx_list, text):
+    matches = []
+    for r in rgx_list:
+        rgx = re.compile(r)
+        found_matches = re.findall(rgx, text)
+        matches.append(found_matches)
