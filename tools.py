@@ -83,12 +83,6 @@ def reduce_list_of_eliminated_letters(current_list):
             for word in current_list:
                 if word[position] == letter:
                     print(f"Eliminating: {word}")
-                else:
-                    print(f"Keeping: {word}")
-                    if word not in possible_words:
-                        possible_words.append(word)
-                current_list =[]
-                for word in possible_words:
-                    current_list.append(word)
+                    current_list.remove(word)
 
-    return(possible_words)
+    return(current_list)
