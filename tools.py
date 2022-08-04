@@ -41,29 +41,9 @@ def display_current_words(current_list):
     return
 
 
-def OLD_reduce_list_of_eliminated_letters(current_list):
-
-    possible_words = []
-
-    print("\n====================================\n\n")
-    print("Enter the eliminated letter followed by ")
-    print("the position of the letter in the word.")
-    print("Remember, position begins with zero.")
-    resp = input(":  ").upper()
-    letter = resp[0]
-    position = int(resp[1])
-
-    for word in current_list:
-        if word[position] == letter:
-            print(f"Eliminating: {word}")
-        else:
-            print(f"Keeping: {word}")
-            possible_words.append(word)
-    return(possible_words)
-
-
 def reduce_list_of_eliminated_letters(current_list):
-    possible_words = []
+
+    new_list = []
 
     print("\n====================================\n\n")
     print("Enter the letter to be eliminated")
@@ -78,11 +58,14 @@ def reduce_list_of_eliminated_letters(current_list):
     letter = input("What is the letter:  ").upper()
     pattern = input("What is the deletion pattern:   ")
 
-    for position in range(5):
+    for position in range(len(pattern)):
         if pattern[position] == "?":
             for word in current_list:
-                if word[position] == letter:
-                    print(f"Eliminating: {word}")
-                    current_list.remove(word)
+                if word[position] != letter:
+                    new_list.append(word)
+            current_list = []
+            for word in new_list:
+                current_list.append(word)
+            new_list = []
 
     return(current_list)
