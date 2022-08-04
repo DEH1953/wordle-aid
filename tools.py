@@ -17,6 +17,9 @@ def display_menu():
 
 
 def reduce_list_by_located_letters(current_list):
+
+    legal_letters = ".ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
     print("================================================================")
     print("Enter the RegEx search pattern as follows:")
     print("For every unused letter, enter a period")
@@ -25,6 +28,11 @@ def reduce_list_by_located_letters(current_list):
     print("the RegEx search pattern would be T.I..")
     print("================================================================")
     pattern = input("\nEnter the RegEx pattern to match (?????):\n").upper()
+
+    for letter in pattern:
+        if letter not in legal_letters:
+            print("Incorrect Letter")
+            return current_list
 
     new_list = []
     for word in current_list:
