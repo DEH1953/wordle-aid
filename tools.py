@@ -11,8 +11,9 @@ def display_menu():
     print("      Located letters")
     print("E - Remove words from Wordle List that")
     print("      have eliminated letters")
+    print("C - Display current word count")
     print("----------------------------------------\n")
-    response = input("What would you like to do?\n(Q, D, L, E):  ")
+    response = input("What would you like to do?\n(Q, D, L, E, C):  ")
     return response.upper()
 
 
@@ -43,6 +44,7 @@ def reduce_list_by_located_letters(current_list):
 
 def display_current_words(current_list):
     print("\n========= CURRENT WORDS ============")
+    print(f"Number of words:  {len(current_list)}")
     for word in current_list:
         print(word)
     print("====================================\n\n")
@@ -77,3 +79,13 @@ def reduce_list_of_eliminated_letters(current_list):
             new_list = []
 
     return(current_list)
+
+
+def display_word_count(current_list):
+    print("=====================================")
+    if current_list == 1:
+        print(f"The curren word list has {len(current_list)} word.")
+    else:
+        print(f"The curren word list has {len(current_list)} words.")
+    print("=====================================")
+

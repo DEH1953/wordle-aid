@@ -7,6 +7,7 @@ import tools
 current_list = []
 for word in wordle_list:
   current_list.append(word)
+print(f"\n\nWordle word list loaded with {len(current_list)} words.")
 
 running = True
 response = tools.display_menu()
@@ -28,6 +29,11 @@ while running:
   elif response == "E":
     running = True
     current_list = tools.reduce_list_of_eliminated_letters(current_list)
+    response = tools.display_menu()
+
+  elif response == "C":
+    running = True
+    tools.display_word_count(current_list)
     response = tools.display_menu()
 
   else:
